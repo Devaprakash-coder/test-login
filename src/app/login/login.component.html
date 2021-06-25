@@ -1,0 +1,20 @@
+<a class="btn btn-success" routerLink = '/signup'>sign-up</a>
+<div >
+    <form class="formgroup" [formGroup]='loginForm' (ngSubmit)='logIn(loginForm)'>
+    <div class="input-group">
+        <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+        <input type="text" class="form-control" formControlName="Luname">
+    </div>
+    <div *ngIf="loginForm.get('Luname').invalid && loginForm.get('Luname').touched">
+        <p>Invalid Username</p>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+        <input type="text" class="form-control" formControlName="Lpword">   
+    </div>
+    <div *ngIf="loginForm.get('Lpword').invalid && loginForm.get('Lpword').touched">
+        <p>Invalid Password</p>
+    </div>
+    <button [disabled]="loginForm.invalid" class="btn btn-primary" type="submit">Log-In</button>
+</form>
+</div>
